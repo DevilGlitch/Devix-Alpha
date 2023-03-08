@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Message Board</title>
+</head>
+<body>
+    <h1>Message Board</h1>
+    <form method="post" action="message_board.jsp">
+        <input type="text" name="message" />
+        <button type="submit">Post</button>
+    </form>
+    <ul>
+        <% List<Message> messages = (List<Message>) request.getAttribute("messages"); %>
+        <% for (Message message : messages) { %>
+            <li><%= message.getText() %></li>
+        <% } %>
+    </ul>
+</body>
+</html>
