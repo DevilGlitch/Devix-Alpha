@@ -6,15 +6,8 @@ import java.io.IOException;
 
 public class MessageBoardApp extends HttpServlet {
 
-    Server server = new Server(8080);
-    ServletContextHandler handler = new ServletContextHandler(server, "/");
-    handler.addServlet(new ServletHolder(new MessageBoardApp()), "/*");
-    server.start();
-    server.join();
- 
     private MessageBoard messageBoard;
 
-    
     public void init() throws ServletException {
         messageBoard = new MessageBoard();
         getServletContext().setAttribute("messageBoard", messageBoard);
